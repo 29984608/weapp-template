@@ -1,0 +1,11 @@
+{
+  "name": "weapp-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {},
+  "license": "ISC"
+}
