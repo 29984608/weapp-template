@@ -1,5 +1,7 @@
-// app.js
-App({
+import { CustomApp, CustomUI } from '/engine/index'
+
+CustomApp({
+  appModules: [],
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []

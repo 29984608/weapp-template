@@ -1,5 +1,5 @@
 const app = getApp()
-import { moment } from '/engine/index'
+import { moment, _ } from '/engine/index'
 
 
 Page({
@@ -14,11 +14,10 @@ Page({
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/index'
     })
   },
   onLoad() {
-    console.log(moment().format('YYYY-MM-DD HH:mm:ss'));
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
