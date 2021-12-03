@@ -1,3 +1,5 @@
+const originApp = App;
+
 const checkForUpdate = () => {
   const updateManager = wx.getUpdateManager();
   updateManager.onUpdateReady(() => {
@@ -17,9 +19,11 @@ const checkForUpdate = () => {
 };
 
 export default function(config) {
-  const { onLaunch, onShow, onHide } = config;
-
+  const { onLaunch, onShow } = config;
   config.onLaunch = function (options) {
+    for (const module of (config.appModules || [])) {
+      module.install(options, this);
+    }
     onLaunch.call(this, options);
     checkForUpdate();
   }
@@ -28,12 +32,5 @@ export default function(config) {
     onShow.call(this, options);
   }
 
-  config.onHide = function (options) {
-    const pages = getCurrentPages();
-    onHide.call(this, options);
-  }
-
-  config.onError = function (err) {
-    console.error(err);
-  }
+  originApp(config)
 }

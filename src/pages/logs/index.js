@@ -1,6 +1,6 @@
-import { moment } from '/engine/index'
+import { CustomPage, moment } from '/engine/index'
 
-Page({
+CustomPage({
   data: {
     logs: []
   },
